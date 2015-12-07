@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{F4B51643-383C-4825-8C1A-344E7856C512}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="KLApp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="KLSvc.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="KLHookLib.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="KLHideTaskLib.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="KLApp">
+        <MSBuild Projects="KLApp.dproj"/>
+    </Target>
+    <Target Name="KLApp:Clean">
+        <MSBuild Projects="KLApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="KLApp:Make">
+        <MSBuild Projects="KLApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="KLSvc">
+        <MSBuild Projects="KLSvc.dproj"/>
+    </Target>
+    <Target Name="KLSvc:Clean">
+        <MSBuild Projects="KLSvc.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="KLSvc:Make">
+        <MSBuild Projects="KLSvc.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="KLHookLib">
+        <MSBuild Projects="KLHookLib.dproj"/>
+    </Target>
+    <Target Name="KLHookLib:Clean">
+        <MSBuild Projects="KLHookLib.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="KLHookLib:Make">
+        <MSBuild Projects="KLHookLib.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="KLHideTaskLib">
+        <MSBuild Projects="KLHideTaskLib.dproj"/>
+    </Target>
+    <Target Name="KLHideTaskLib:Clean">
+        <MSBuild Projects="KLHideTaskLib.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="KLHideTaskLib:Make">
+        <MSBuild Projects="KLHideTaskLib.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="KLApp;KLSvc;KLHookLib;KLHideTaskLib"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="KLApp:Clean;KLSvc:Clean;KLHookLib:Clean;KLHideTaskLib:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="KLApp:Make;KLSvc:Make;KLHookLib:Make;KLHideTaskLib:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
